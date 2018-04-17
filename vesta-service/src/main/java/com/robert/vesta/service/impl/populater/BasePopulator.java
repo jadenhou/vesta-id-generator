@@ -21,7 +21,7 @@ public abstract class BasePopulator implements IdPopulator, ResetPopulator {
             sequence++;
             sequence &= idMeta.getSeqBitsMask();
             if (sequence == 0) {
-                timestamp = TimeUtils.tillNextTimeUnit(lastTimestamp, IdType.parse(id.getType()));
+                lastTimestamp = timestamp = TimeUtils.tillNextTimeUnit(lastTimestamp, IdType.parse(id.getType()));
             }
         } else {
             lastTimestamp = timestamp;
